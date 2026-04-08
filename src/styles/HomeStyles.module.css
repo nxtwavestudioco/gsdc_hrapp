@@ -1,0 +1,113 @@
+/* HomeStyles.module.css - Used in src/pages/Home.tsx for dashboard card and details styling */
+
+
+.dashboardCard {
+  background: linear-gradient(135deg, #f8fafc 60%, #e3eafc 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.10);
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid #dbeafe;
+  min-width: 320px;
+  max-width: 420px;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.dashboardCard:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.stat-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #22344a;
+  margin-bottom: 0.5rem;
+}
+.stat-title-large {
+  font-size: 1.25rem;
+}
+.stat-number {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.2rem;
+}
+.stat-number.active {
+  color: #22c55e;
+}
+.stat-number.on-leave {
+  color: #facc15;
+}
+.stat-number.inactive {
+  color: #ef4444;
+}
+.dashboardCardLarge {
+  min-width: 420px;
+  max-width: 600px;
+}
+/* Modern dashboard table styles */
+.dashboard-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(31,38,135,0.07);
+  margin-top: 1.2rem;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+.dashboard-table th, .dashboard-table td {
+  padding: 0.85rem 1.2rem;
+  text-align: center;
+  font-size: 1.08rem;
+}
+.dashboard-table th {
+  background: linear-gradient(90deg, #2563eb 0%, #1e293b 100%);
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 2.5px solid #e3eafc;
+}
+.dashboard-table td {
+  border-bottom: 1.5px solid #e3eafc;
+  color: #22344a;
+}
+.dashboard-table tr:last-child td {
+  border-bottom: none;
+}
+.dashboard-group-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+.dashboard-team-label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.dashboardCardLarge {
+  min-width: 420px;
+  max-width: 600px;
+}
+
+.dashboardClickableCount {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  margin-top: 8px;
+}
+
+.dashboardBarClickable {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
+}

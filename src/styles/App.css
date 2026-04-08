@@ -1,0 +1,61 @@
+/* Modal table empty state */
+.modal-table-empty {
+  text-align: center;
+  color: #64748b;
+}
+/* Modal overlay and content for dashboard details */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.35);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  min-width: 340px;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  min-width: 340px;
+  max-width: 95vw;
+  padding: 1.5rem 1.5rem;
+  min-width: 340px;
+  max-width: 420px;
+  overflow-y: auto;
+  color: #1e293b;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #64748b;
+  cursor: pointer;
+  z-index: 10;
+}
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.2rem;
+  background: #fff;
+}
+.modal-table th, .modal-table td {
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem 1.1rem;
+  text-align: left;
+  font-size: 1.05rem;
+}
+.modal-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: #1e293b;
+}

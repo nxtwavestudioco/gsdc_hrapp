@@ -1,0 +1,198 @@
+/* Modern table card for Employees, Recruitment, HelperToDriver */
+.employees-table-card, .recruitment-table-card, .helper2driver-table-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.10);
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  border: 1.5px solid #dbeafe;
+}
+
+.employees-table-title, .recruitment-table-title, .helper2driver-table-title {
+  color: #22344a;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.employees-table, .recruitment-table, .helper2driver-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(31,38,135,0.07);
+  overflow: hidden;
+}
+.employees-table th, .recruitment-table th, .helper2driver-table th,
+.employees-table td, .recruitment-table td, .helper2driver-table td {
+  padding: 0.85rem 1.2rem;
+  text-align: center;
+  font-size: 1.08rem;
+}
+.employees-table th, .recruitment-table th, .helper2driver-table th {
+  background: linear-gradient(90deg, #2563eb 0%, #1e293b 100%);
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 2.5px solid #e3eafc;
+}
+.employees-table td, .recruitment-table td, .helper2driver-table td {
+  border-bottom: 1.5px solid #e3eafc;
+  color: #22344a;
+}
+.employees-table tr:last-child td, .recruitment-table tr:last-child td, .helper2driver-table tr:last-child td {
+  border-bottom: none;
+}
+.employees-table-empty, .recruitment-table-empty, .helper2driver-table-empty {
+  color: #64748b;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+.search-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.2rem;
+}
+.search-input {
+  border: 1.5px solid #dbeafe;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.08rem;
+  width: 320px;
+  transition: border 0.18s;
+}
+.search-input:focus {
+  outline: none;
+  border: 1.5px solid #2563eb;
+}
+
+/* Modal modern look for edit dialogs */
+.modal-content {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  min-width: 340px;
+  max-width: 95vw;
+  max-width: 620px;
+  overflow-y: auto;
+  color: #1e293b;
+  position: relative;
+}
+.modal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.modal-title-large {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #22344a;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.dashboard-group-section {
+  margin-top: 2.5rem;
+}
+/* CSS Reset for consistent layout and to remove browser default spacing */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Dashboard layout fix: sidebar + content row */
+.dashboard-content-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 2.5rem 2.5rem 2.5rem 0;
+  min-width: 0;
+}
+
+.dashboard-main-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: #f8fafc;
+}
+
+.dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sidebar button style for global use */
+.sidebar-btn {
+  width: 90%;
+  background: linear-gradient(180deg, #1a2636 0%, #22344a 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  transition: background 0.18s, border 0.18s;
+  box-shadow: none;
+  margin-left: 5%;
+  font-family: sans-serif;
+}
+.sidebar-btn:hover, .sidebar-btn:focus {
+  background: #2e4a6b;
+  color: #fff;
+  border: 2px solid #b0bec5;
+}
+.sidebar-btn.active {
+  background: #22344a;
+  border: 2px solid #b0bec5;
+  box-shadow: 0 2px 8px 0 rgba(31,38,135,0.08);
+}
+
+/* Main background for theme switching */
+.main-bg.theme-dark {
+  background: #181c24 !important;
+}
+.main-bg.theme-light {
+  background: #f8fafc !important;
+}
+html.theme-dark {
+  background: #242424 !important;
+  color: #fff !important;
+}
+html.theme-light {
+  background: #fff !important;
+  color: #213547 !important;
+}
+body.theme-dark, #root.theme-dark {
+  background: #242424 !important;
+  color: #fff !important;
+}
+
+
+body.theme-light, #root.theme-light {
+  background: #fff !important;
+  color: #213547 !important;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}

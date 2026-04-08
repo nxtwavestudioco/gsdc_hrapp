@@ -1,0 +1,550 @@
+/* Modal header row for close and export button alignment */
+.modal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Export button right alignment and spacing */
+.modal-export-btn-right {
+  margin-left: 8px;
+}
+/* Tenure info styling */
+.employee-tenure-info {
+  font-weight: 500;
+  color: #1e293b;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+/* 3-column layout for all fields */
+.modal-fields-3col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  align-items: center;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+.modal-fields-row {
+  display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(220px, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1050px;
+  justify-items: stretch;
+  align-items: center;
+}
+
+/* Custom column widths for better alignment */
+.modal-field-cell {
+  display: flex;
+  flex-direction: column;
+}
+.kamiid-cell, .costcenter-cell, .employmentstatus-cell, .birthplace-cell, .restriction-cell, .pagibig-cell {
+  flex: 0 0 120px;
+  max-width: 140px;
+}
+.fullname-cell, .areaassignment-cell, .position-cell, .drivingexp-cell, .licenseexp-cell, .philhealth-cell {
+  flex: 0 0 220px;
+  max-width: 260px;
+}
+.address-cell, .status-cell, .civilstatus-cell, .driverlic-cell, .sss-cell, .tin-cell {
+  flex: 1 1 600px;
+  max-width: 800px;
+}
+.modal-field-cell {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 180px;
+  max-width: 320px;
+}
+.kamiid-cell .kamiid-input {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  text-align: center;
+}
+.fullname-cell .fullname-input {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.address-cell .address-input {
+  width: 100%;
+  min-width: 420px;
+  max-width: 100%;
+}
+.modal-field-cell label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+.modal-field-input {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+/* Two header rows with three fields each at the top of the modal */
+.modal-header-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  align-items: center;
+}
+.modal-header-row3 {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+}
+.modal-header-cell {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 180px;
+  max-width: 320px;
+}
+.modal-header-cell label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
+.modal-header-input {
+  width: 100%;
+  font-size: 1.05rem;
+  font-weight: 500;
+  background: #f1f5f9;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+/* Header fields (KAMI ID, Full Name, Address) at the top of the modal */
+.modal-header-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  align-items: center;
+}
+.modal-header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 520px;
+}
+.modal-header-row label {
+  min-width: 120px;
+  text-align: right;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+.modal-header-input {
+  width: 320px;
+  min-width: 220px;
+  max-width: 400px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+/* Restore grid for modal-card-grid */
+/* Flex layout for all modal fields */
+.modal-fields-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  align-items: center;
+}
+
+.modal-field-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.modal-field-row label {
+  min-width: 120px;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+.modal-field-input {
+  width: 220px;
+  min-width: 180px;
+  max-width: 220px;
+}
+/* Top row for KAMI ID, Full Name, Address */
+.modal-top-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.modal-top-row .kamiid-col,
+.modal-top-row .fullname-col {
+  flex: 1;
+}
+.modal-top-row .address-col {
+  flex: 2;
+}
+/* KAMI ID, Full Name, Address field sizing and alignment */
+.kamiid-input {
+  min-width: 80px;
+  max-width: 120px;
+  width: 100px;
+  text-align: center;
+  margin-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fullname-input {
+  min-width: 160px;
+  max-width: 220px;
+  width: 180px;
+}
+.address-input {
+  min-width: 320px;
+  max-width: 100%;
+  width: 480px;
+}
+.kamiid-label {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+/* Green Save button for modal */
+.modal-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.modal-action-save {
+  background: #22c55e !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  max-width: 160px;
+  min-width: 100px;
+  display: block;
+}
+.modal-action-save:hover {
+  background: #16a34a !important;
+}
+/* Download attachment button style */
+.download-attachment-btn {
+  background: #e5e7eb;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 12px;
+  margin-top: 8px;
+  margin-left: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+.download-attachment-btn:hover {
+  background: #d1d5db;
+}
+.align-start {
+  align-items: flex-start;
+}
+
+.remove-attachment-btn {
+  background: #e53935;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 12px;
+  margin-top: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* EmployeeModal styles extracted from inline styles */
+.modal-overlay {
+  background: rgba(30, 41, 59, 0.7);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+}
+.modal-close-x {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 28px;
+  color: #e53935;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+.modal-card header {
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+.modal-card header span {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #3b82f6;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.modal-card header h3 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-top: 8px;
+}
+/* Remove grid from modal-card section, handled by .modal-fields-flex */
+.center-text {
+  text-align: center;
+}
+input[disabled] {
+  background: #f1f5f9;
+}
+input, select, textarea {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 15px;
+  width: 100%;
+  text-align: center !important;
+  box-sizing: border-box;
+}
+.modal-field-input,
+.kamiid-input,
+.fullname-input,
+.address-input,
+input,
+select,
+textarea {
+  text-align: center !important;
+  box-sizing: border-box;
+  padding-left: 12px;
+  padding-right: 12px;
+  min-width: 0;
+}
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #334155;
+}
+.attachments-section {
+  margin-top: 2rem;
+}
+.attachments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 2rem;
+}
+.attachment-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.08);
+  min-height: 120px;
+  position: relative;
+}
+.attachment-eye {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-left: 2px;
+  cursor: pointer;
+  color: #2563eb;
+  position: relative;
+}
+.attachment-eye-disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+.attachment-preview-pop {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  max-height: 180px;
+  object-fit: contain;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.18);
+  background: #fff;
+  z-index: 10;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Modal card width fix at end of file */
+.modal-card {
+  max-width: 1100px;
+}
+
+/* Recruitment modal: extracted inline styles */
+.recruitment-modal-title-wrap {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.recruitment-modal-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: 1px;
+}
+.recruitment-header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.recruitment-header-label {
+  font-weight: 700;
+  font-size: 1.2rem;
+  min-width: 160px;
+  text-align: center;
+}
+.recruitment-header-input {
+  font-weight: 700;
+  font-size: 1.2rem;
+  background: #f1f5f9;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-align: center;
+}
+.recruitment-header-input.recruitment-id-input {
+  min-width: 260px;
+  max-width: 400px;
+}
+.recruitment-header-input.recruitment-fullname-input {
+  min-width: 400px;
+  max-width: 700px;
+}
+.recruitment-field-label {
+  text-align: center;
+  width: 100%;
+}
+.recruitment-actions-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 32px;
+}
+.recruitment-btn-delete {
+  background: #fff;
+  color: #e53935;
+  border: 2px solid #e53935;
+  border-radius: 8px;
+  padding: 10px 32px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 4px rgba(229, 57, 53, 0.08);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.recruitment-btn-delete:hover {
+  background: #e53935;
+  color: #fff;
+}
+.recruitment-btn-cancel {
+  background: #fff;
+  color: #222;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 32px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.recruitment-btn-cancel:hover {
+  background: #f3f4f6;
+}
+.recruitment-btn-save {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 32px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 4px rgba(34, 197, 94, 0.08);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.recruitment-btn-save:hover {
+  background: #16a34a;
+}
+.attachment-preview-label {
+  padding: 8px 14px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.attachment-eye-faded {
+  opacity: 0.3;
+}

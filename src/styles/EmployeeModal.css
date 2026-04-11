@@ -302,6 +302,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* blur background content behind this overlay */
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
 }
 .modal-card {
   background: #fff;

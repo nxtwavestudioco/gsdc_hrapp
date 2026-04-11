@@ -1,5 +1,6 @@
 import '../styles/EmployeeModal.css';
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { fileToBase64, fetchAttachmentImage, uploadAttachment } from '../utils/attachmentUtils';
 import { Eye, ArrowDownToLine } from 'lucide-react';
 
@@ -137,6 +138,13 @@ const EmployeeModal = ({ employee, open, onClose, onSave }: Props): React.ReactE
     fetchAll();
   }, [open, form.kamiId, form.fullName]);
 
+  // prevent body scrolling while modal is open
+  useEffect(() => {
+    const prev = typeof document !== 'undefined' ? document.body.style.overflow : '';
+    if (open && typeof document !== 'undefined') document.body.style.overflow = 'hidden';
+    return () => { if (typeof document !== 'undefined') document.body.style.overflow = prev; };
+  }, [open]);
+
   if (!open) return null;
 
   const handleChange = (
@@ -175,7 +183,7 @@ const EmployeeModal = ({ employee, open, onClose, onSave }: Props): React.ReactE
     if (form) onSave(form, []);
   };
 
-  return (
+  const modalNode = (
     <div className="modal-overlay" onClick={onClose}>
       <form
         className="modal-card"
@@ -599,6 +607,12 @@ const EmployeeModal = ({ employee, open, onClose, onSave }: Props): React.ReactE
       </form>
     </div>
   );
+
+  if (typeof document !== 'undefined') {
+    return createPortal(modalNode, document.body);
+  }
+  return null;
+
 };
 
 export { EmployeeModal };

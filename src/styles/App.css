@@ -18,15 +18,13 @@
 }
 .modal-content {
   min-width: 340px;
-  max-width: 420px;
+  max-width: min(1100px, 95vw);
+  width: min(1100px, 95vw);
   border-radius: 16px;
   box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
-  min-width: 340px;
-  max-width: 95vw;
   padding: 1.5rem 1.5rem;
-  min-width: 340px;
-  max-width: 420px;
+  /* allow internal scrolling while keeping header visible */
+  max-height: calc(100vh - 160px);
   overflow-y: auto;
   color: #1e293b;
   position: relative;
@@ -58,4 +56,53 @@
   background: #f1f5f9;
   font-weight: 700;
   color: #1e293b;
+}
+
+/* Global modal table styling for dashboard modal */
+.modal-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #e6eefc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.modal-content table th,
+.modal-content table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #eef4ff;
+  text-align: center;
+}
+.modal-content tr[data-role="group-header"] td {
+  background: #eef2ff;
+  color: #0f172a;
+  font-weight: 900;
+  padding: 0.75rem 1rem;
+  border-top: 2px solid #e6eefc;
+  border-bottom: 1px solid #e6eefc;
+  text-transform: uppercase;
+}
+.modal-content tr[data-role="group-subtotal"] td {
+  font-weight: 800;
+  background: #f1f5f9;
+}
+
+/* Sticky header wrapper inside modal-content */
+.modal-header-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #ffffff;
+  /* expose header height for table sticky offset; increased to accommodate header + search */
+  --modal-header-h: 92px;
+  /* small shadow to separate from scrolled content */
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+/* Ensure the table header is sticky below the header wrapper */
+.modal-content thead th {
+  position: sticky;
+  top: var(--modal-header-h, 72px); /* aligns below the header + search input area */
+  background: #ffffff;
+  z-index: 4;
 }

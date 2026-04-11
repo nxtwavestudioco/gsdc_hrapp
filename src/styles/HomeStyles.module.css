@@ -15,6 +15,12 @@
   color: #22344a;
 }
 
+/* container for the dashboard page to eliminate unexpected gaps above TopBar */
+.dashboardContainer {
+  margin: 0;
+  padding: 0;
+}
+
 /* Clickable breakdown for KPI cards */
 .kpiBreakdownClickable {
   color: #2563eb;
@@ -22,10 +28,9 @@
   cursor: pointer;
   text-decoration: underline;
   transition: color 0.15s;
+  white-space: nowrap;
 }
-.kpiBreakdownClickable:hover {
-  color: #1e293b;
-}
+.kpiBreakdownClickable:hover { color: #1e293b; }
 /* Flex row for sidebar and main content */
 .dashboardFlexRow {
   display: flex;
@@ -53,6 +58,17 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.kpiExtraGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 2.2rem;
+  width: 100%;
+}
+
+.kpiExtraGrid .kpiCard {
+  padding: 1rem 1rem;
+}
 @media (max-width: 700px) {
   .kpiGrid {
     grid-template-columns: 1fr;
@@ -71,7 +87,7 @@
   border: 1.5px solid #dbeafe;
   min-width: 0;
   transition: box-shadow 0.2s, transform 0.2s;
-  cursor: pointer;
+  cursor: default;
 }
 .kpiCard:hover {
   box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16);
@@ -94,6 +110,12 @@
   font-weight: 500;
   font-size: 1.05rem;
   margin-top: 4px;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  line-height: 1.1;
 }
 /* Modern modal table styles */
 .dashboard-table {
@@ -138,6 +160,7 @@
   font-size: 1.13rem;
   letter-spacing: 0.01em;
   border-bottom: 2px solid #e3eafc;
+}
 .modal-table tbody tr:nth-child(even) td {
   background: #f8fafc;
 }
@@ -159,14 +182,16 @@
 /* Modal overlay and card */
 .modalOverlay {
   position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: rgba(2,6,23,0.55) !important;
+  background: rgba(2,6,23,0.45) !important;
+  /* visually blur whatever is behind the overlay */
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
   z-index: 2147483647 !important;
 }
 .modalCard {
@@ -178,6 +203,8 @@
   overflow: auto;
   box-shadow: 0 12px 40px rgba(2,6,23,0.25);
   border: 1px solid #e6eefc;
+  z-index: 2147483648 !important;
+  margin: 0 auto; /* center horizontally without vertical offset */
 }
 .modalHeaderRow {
   display: flex;
@@ -202,7 +229,12 @@
   padding: 0.6rem 0.9rem;
   border-radius: 8px;
   border: 1px solid #e6eefc;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* wrapper used in Home.tsx for the search input inside the sticky header */
+.modalSearchWrap {
+  margin: 0 0 0.5rem 0;
 }
 .modalTableWrap {
   width: 100%;
@@ -231,6 +263,34 @@
   color: #64748b;
   padding: 1rem;
   text-align: center;
+}
+
+/* Group header row inside modal table */
+.modalGroupHeader td {
+  background: #eef2ff;
+  color: #0f172a;
+  font-weight: 900;
+  padding: 0.75rem 1rem;
+  border-top: 2px solid #e6eefc;
+  border-bottom: 1px solid #e6eefc;
+  text-transform: uppercase;
+}
+
+/* Subtotal row styling */
+.modalGroupSubtotal td {
+  font-weight: 800;
+  background: #f1f5f9;
+}
+
+/* Add overall table border and rounded corners */
+.modalTable {
+  border: 1px solid #e6eefc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modalTable th, .modalTable td {
+  border-bottom: 1px solid #eef4ff;
 }
 
 .modalPaginationInfo {
@@ -475,15 +535,77 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: #2563eb;
-  margin-bottom: 0.5rem;
-  margin-top: 2.5rem;
-  text-align: left;
 }
+
+/* Simple horizontal bar chart used for KPI visualization */
+.barChart {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #e6eefc;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  margin-bottom: 1.6rem;
+}
+.barChartSmall {
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  box-shadow: none;
+  margin-bottom: 0.25rem;
+}
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+.barLabel {
+  min-width: 120px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.barTrack {
+  flex: 1 1 auto;
+  background: #f1f5f9;
+  height: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
+.barValue {
+  min-width: 48px;
+  text-align: right;
+  font-weight: 800;
+  color: #22344a;
+}
+.barCardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.barCardSmall {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e6eefc;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+}
+.barCardTitle {
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+.barRowSmall { padding: 0.25rem 0; }
+.barLabelSmall { min-width: 80px; font-size: 0.92rem; font-weight: 700; }
+.barValueSmall { min-width: 44px; font-size: 0.9rem; font-weight: 800; }
 .dashboard-team-label {
   font-weight: 600;
   color: #1e293b;
 }
-
 .dashboardCardLarge {
   min-width: 420px;
   max-width: 600px;
@@ -503,5 +625,4 @@
   cursor: pointer;
   text-decoration: underline;
   font-weight: 600;
-}
 }

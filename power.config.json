@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "appId": "fc96ca4b-f6e6-4467-ad74-619d22dfd80f",
+  "appDisplayName": "HR App",
+  "region": "prod",
+  "environmentId": "b2d2222d-c740-ef16-9086-1d5bd091f18e",
+  "description": "",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {}
+}

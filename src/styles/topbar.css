@@ -1,0 +1,132 @@
+.topbar {
+  border-radius: 2rem;
+  margin: 0;
+  width: 100vw;
+  min-width: 320px;
+  padding: 0.7rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.10);
+  min-height: 70px;
+}
+
+.theme-light .topbar {
+  background: #182b3a;
+}
+
+.theme-dark .topbar {
+  background: #101c2a;
+}
+
+.topbar-logo-box {
+  background: #fff;
+  border-radius: 18px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+}
+
+.topbar-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.topbar-title-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.topbar-company-name {
+  color: #b6c2d6;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.topbar-app-title {
+  margin: 0;
+  font-weight: 700;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.topbar-spacer {
+  flex: 1;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.topbar-theme-toggle {
+  width: 38px;
+  height: 22px;
+  border: none;
+  border-radius: 22px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-right: 30px;
+}
+
+.theme-light .topbar-theme-toggle {
+  background: #b0bec5;
+}
+
+.theme-dark .topbar-theme-toggle {
+  background: #1976d2;
+}
+
+.topbar-toggle-knob {
+  position: absolute;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.10);
+  transition: left 0.2s;
+}
+
+.theme-light .topbar-toggle-knob {
+  left: 2px;
+}
+
+.theme-dark .topbar-toggle-knob {
+  left: 18px;
+}
+
+.topbar-logout-btn {
+  background: none;
+  border: 2px solid #b0bec5;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+  transition: background 0.18s, color 0.18s;
+  margin-right: 90px;
+  max-width: 120px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.topbar-logout-btn:hover {
+  background: #e3eafc;
+  color: #1976d2;
+}

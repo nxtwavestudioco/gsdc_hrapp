@@ -1,0 +1,665 @@
+/* Centered Welcome Back for login */
+.loginWelcomeCentered {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 1.5rem 0 1.5rem 0;
+}
+/* Centered dashboard title */
+.dashboardTitleCentered {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #22344a;
+}
+
+/* container for the dashboard page to eliminate unexpected gaps above TopBar */
+.dashboardContainer {
+  margin: 0;
+  padding: 0;
+}
+
+/* Clickable breakdown for KPI cards */
+.kpiBreakdownClickable {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+.kpiBreakdownClickable:hover { color: #1e293b; }
+/* Flex row for sidebar and main content */
+.dashboardFlexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 80vh;
+}
+
+/* Main content area next to sidebar */
+.dashboardMainContent {
+  flex: 1;
+  min-width: 0;
+  /* add left padding so main dashboard content is indented away from the sidebar */
+  padding: 0 2.5rem 0 2.5rem;
+}
+
+/* Reduce top spacing for the dashboard main so header sits closer to the TopBar */
+.dashboardMainContent .dashboard-main {
+  padding-top: 0.5rem; /* override global .dashboard-main padding */
+}
+
+.dashboardTitleCentered {
+  margin-top: 0.25rem; /* ensure title is close to TopBar */
+}
+/* Responsive KPI Card Grid */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.2rem;
+  margin-bottom: 2.2rem;
+  width: 100%;
+}
+@media (max-width: 1200px) {
+  .kpiGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.kpiExtraGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 2.2rem;
+  width: 100%;
+}
+
+.kpiExtraGrid .kpiCard {
+  padding: 1rem 1rem;
+}
+@media (max-width: 700px) {
+  .kpiGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modern KPI Card Style */
+.kpiCard {
+  background: linear-gradient(135deg, #f8fafc 60%, #e3eafc 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.10);
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid #dbeafe;
+  min-width: 0;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: default;
+}
+.kpiCard:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Ensure icon and text spacing in card */
+.kpiCard .cardIcon {
+  margin-bottom: 0.5rem;
+}
+/* KPI Card Interactive (removes inline cursor/pointer and transition) */
+.kpiCardInteractive {
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* KPI Card Breakdown (removes inline style for breakdown text) */
+.kpiBreakdown {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-top: 4px;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  line-height: 1.1;
+}
+/* Modern modal table styles */
+.dashboard-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.10);
+  margin-top: 1.2rem;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  border: 1.5px solid #e3eafc;
+}
+.dashboard-table th, .dashboard-table td {
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+  font-size: 1.13rem;
+  border-bottom: 1px solid #e3eafc;
+}
+.dashboard-table th {
+  background: linear-gradient(90deg, #2563eb 0%, #1e293b 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  border-bottom: 2px solid #e3eafc;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+.dashboard-table td {
+  background: #fff;
+  font-weight: 500;
+}
+.dashboard-table tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+.dashboard-table tfoot td {
+  background: #f1f5f9;
+  font-weight: 800;
+  color: #22344a;
+  font-size: 1.13rem;
+  letter-spacing: 0.01em;
+  border-bottom: 2px solid #e3eafc;
+}
+.modal-table tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+.modal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.modal-table-empty {
+  color: #64748b;
+  font-style: italic;
+}
+.modal-title-large {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* Modal overlay and card */
+.modalOverlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(2,6,23,0.45) !important;
+  /* visually blur whatever is behind the overlay */
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  z-index: 2147483647 !important;
+}
+.modalCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  width: min(880px, 92%);
+  max-height: 84vh;
+  overflow: auto;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.25);
+  border: 1px solid #e6eefc;
+  z-index: 2147483648 !important;
+  margin: 0 auto; /* center horizontally without vertical offset */
+}
+.modalHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+.modalClose {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.modalSearch {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #e6eefc;
+  margin-bottom: 0.5rem;
+}
+
+/* wrapper used in Home.tsx for the search input inside the sticky header */
+.modalSearchWrap {
+  margin: 0 0 0.5rem 0;
+}
+.modalTableWrap {
+  width: 100%;
+  overflow: auto;
+}
+
+.modal-header-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #fff;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  /* subtle separation when scrolling */
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+}
+
+/* Make the table header sticky below the modal header/search area so it stays visible while scrolling */
+.modalTable th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #f8fafc;
+}
+
+/* Limit the table scroll region so the modal header and table header do not overlap content */
+.modalTableWrap {
+  max-height: calc(84vh - var(--modal-header-h) - 16px);
+  overflow: auto;
+  /* ensure wrapper is the scrolling container so thead sticks to its top */
+  position: relative;
+}
+.modalTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.modalTable th,
+.modalTable td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eef4ff;
+}
+.modalTfootCell {
+  font-weight: 800;
+}
+.modalTable th {
+  background: #f8fafc;
+  font-weight: 700;
+  color: #22344a;
+}
+.modalTableEmpty {
+  color: #64748b;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Group header row inside modal table */
+.modalGroupHeader td {
+  background: #eef2ff;
+  color: #0f172a;
+  font-weight: 900;
+  padding: 0.75rem 1rem;
+  border-top: 2px solid #e6eefc;
+  border-bottom: 1px solid #e6eefc;
+  text-transform: uppercase;
+}
+
+/* Subtotal row styling */
+.modalGroupSubtotal td {
+  font-weight: 800;
+  background: #f1f5f9;
+}
+
+/* Add overall table border and rounded corners */
+.modalTable {
+  border: 1px solid #e6eefc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modalTable th, .modalTable td {
+  border-bottom: 1px solid #eef4ff;
+}
+
+.modalPaginationInfo {
+  color: #64748b;
+}
+.modalPaginationBtn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #e6eefc;
+  background: #fff;
+  cursor: pointer;
+}
+.modalPaginationBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Toolbar above modal table */
+/* toolbar and pagination removed - modal now shows BU|Count only */
+
+
+/* Pie chart row alignment */
+.pieChartRow {
+  display: flex;
+  flex-direction: row;
+  gap: 2.2rem;
+  margin-bottom: 2.2rem;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.noWrapRow {
+  flex-wrap: nowrap !important;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+.dashboardChartCardWide {
+  min-width: 520px;
+  max-width: 700px;
+}
+.statNumberActive {
+  color: #22c55e;
+}
+.statNumberOnLeave {
+  color: #facc15;
+}
+.statNumberInactive {
+  color: #ef4444;
+}
+/* Modern table clickable cell */
+.dashboard-table-clickable {
+  color: #2563eb;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.15s;
+}
+.dashboard-table-clickable:hover {
+  color: #1e293b;
+}
+
+/* Modern table look */
+.modern-table {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 rgba(31,38,135,0.07);
+}
+.modern-table thead th {
+  background: #f1f5f9;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #22344a;
+  border-bottom: 2px solid #e3eafc;
+  padding: 0.7rem 0.5rem;
+}
+.modern-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+.modern-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+.modern-table td {
+  padding: 0.6rem 0.5rem;
+  font-size: 1.01rem;
+}
+.modern-table tfoot td {
+  font-weight: 700;
+  background: #e3eafc;
+  color: #22344a;
+}
+/* Row for dashboard cards and charts */
+.dashboardCardRow {
+  display: flex;
+  flex-direction: row;
+  gap: 2.2rem;
+  margin-bottom: 2.2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Icon in card */
+.cardIcon {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card color accents */
+.cardBlue {
+  border-top: 5px solid #2563eb;
+}
+.cardGreen {
+  border-top: 5px solid #22c55e;
+}
+.cardYellow {
+  border-top: 5px solid #facc15;
+}
+.cardRed {
+  border-top: 5px solid #ef4444;
+}
+
+/* Big stat title and number */
+.statTitleBig {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #22344a;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
+.statNumberBig {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.1rem;
+  letter-spacing: 0.01em;
+}
+
+/* Chart card for pie graphs */
+.dashboardChartCard {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(31,38,135,0.07);
+  padding: 1.5rem 2rem 2rem 2rem;
+  min-width: 340px;
+  max-width: 420px;
+  flex: 1 1 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.dashboardChartTitleBig {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #22344a;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.01em;
+}
+/* HomeStyles.module.css - Used in src/pages/Home.tsx for dashboard card and details styling */
+
+
+.dashboardCard {
+  background: linear-gradient(135deg, #f8fafc 60%, #e3eafc 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.10);
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid #dbeafe;
+  min-width: 320px;
+  max-width: 420px;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.dashboardCard:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.stat-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #22344a;
+  margin-bottom: 0.5rem;
+}
+.stat-title-large {
+  font-size: 1.25rem;
+}
+.stat-number {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.2rem;
+}
+.stat-number.active {
+  color: #22c55e;
+}
+.stat-number.on-leave {
+  color: #facc15;
+}
+.stat-number.inactive {
+  color: #ef4444;
+}
+.dashboardCardLarge {
+  min-width: 420px;
+  max-width: 600px;
+}
+/* Modern dashboard table styles */
+.dashboard-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(31,38,135,0.07);
+  margin-top: 1.2rem;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+.dashboard-table th, .dashboard-table td {
+  padding: 0.85rem 1.2rem;
+  text-align: center;
+  font-size: 1.08rem;
+}
+.dashboard-table th {
+  background: linear-gradient(90deg, #2563eb 0%, #1e293b 100%);
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 2.5px solid #e3eafc;
+}
+.dashboard-table td {
+  border-bottom: 1.5px solid #e3eafc;
+  color: #22344a;
+}
+.dashboard-table tr:last-child td {
+  border-bottom: none;
+}
+.dashboard-group-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+/* Simple horizontal bar chart used for KPI visualization */
+.barChart {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #e6eefc;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  margin-bottom: 1.6rem;
+}
+.barChartSmall {
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  box-shadow: none;
+  margin-bottom: 0.25rem;
+}
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+.barLabel {
+  min-width: 120px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.barTrack {
+  flex: 1 1 auto;
+  background: #f1f5f9;
+  height: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
+.barValue {
+  min-width: 48px;
+  text-align: right;
+  font-weight: 800;
+  color: #22344a;
+}
+.barCardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.barCardSmall {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e6eefc;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+}
+.barCardTitle {
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+.barRowSmall { padding: 0.25rem 0; }
+.barLabelSmall { min-width: 80px; font-size: 0.92rem; font-weight: 700; }
+.barValueSmall { min-width: 44px; font-size: 0.9rem; font-weight: 800; }
+.dashboard-team-label {
+  font-weight: 600;
+  color: #1e293b;
+}
+.dashboardCardLarge {
+  min-width: 420px;
+  max-width: 600px;
+}
+
+.dashboardClickableCount {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  margin-top: 8px;
+}
+
+
+.dashboardBarClickable {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
+}

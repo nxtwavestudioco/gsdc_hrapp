@@ -273,13 +273,14 @@ const EmployeeModal = ({ employee, open, onClose, onSave }: Props): React.ReactE
                 </select>
               </div>
               <div className="modal-field-cell">
-<<<<<<< HEAD
-                <label htmlFor="positionStatus">Position</label>
-                <select id="positionStatus" name="positionStatus" value={form.positionStatus || ''} onChange={handleChange} className="modal-field-input">
-=======
                 <label htmlFor="position">Position</label>
-                <select id="position" name="position" value={form.position || ''} onChange={handleChange} className="modal-field-input">
->>>>>>> e005fba (Initial commit from workspace)
+                <select
+                  id="position"
+                  name="position"
+                  value={form.position || form.positionStatus || ''}
+                  onChange={handleChange}
+                  className="modal-field-input"
+                >
                   <option value="">Select Position</option>
                   <option value="Driver">Driver</option>
                   <option value="Helper">Helper</option>

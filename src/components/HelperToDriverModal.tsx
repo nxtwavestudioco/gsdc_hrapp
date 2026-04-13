@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Eye } from 'lucide-react';
 
@@ -166,17 +165,6 @@ const HelperToDriverModal: React.FC<Props> = ({ request, open, onClose, onSave }
   );
 
   return createPortal(modalContent, typeof document !== 'undefined' ? document.body : null as any);
-};
-
-export default HelperToDriverModal;
-      </form>
-    </div>
-  );
-<<<<<<< HEAD
-=======
-
-  return createPortal(modalContent, typeof document !== 'undefined' ? document.body : null as any);
->>>>>>> e005fba (Initial commit from workspace)
 };
 
 export default HelperToDriverModal;

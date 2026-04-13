@@ -240,6 +240,33 @@
   width: 100%;
   overflow: auto;
 }
+
+.modal-header-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #fff;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  /* subtle separation when scrolling */
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+}
+
+/* Make the table header sticky below the modal header/search area so it stays visible while scrolling */
+.modalTable th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #f8fafc;
+}
+
+/* Limit the table scroll region so the modal header and table header do not overlap content */
+.modalTableWrap {
+  max-height: calc(84vh - var(--modal-header-h) - 16px);
+  overflow: auto;
+  /* ensure wrapper is the scrolling container so thead sticks to its top */
+  position: relative;
+}
 .modalTable {
   width: 100%;
   border-collapse: collapse;

@@ -196,3 +196,135 @@ body.theme-light, #root.theme-light {
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+/* Employees page specific overrides */
+.employees-content-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.employees-main {
+  flex: 1;
+  padding: 1.5rem 2.5rem 2.5rem 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* make the employee card wider on larger screens */
+.employees-table-card {
+  width: min(1400px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Header row: place Back button at the top-right */
+.employees-header-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* move to right */
+  margin-bottom: 1rem;
+}
+
+.employees-back-btn {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0.5rem 0.85rem !important;
+  font-size: 0.95rem !important;
+  border-radius: 10px !important;
+  display: inline-block !important;
+}
+
+/* Recruitment page: mirror Employees layout so sidebar + main sit side-by-side */
+.recruitment-content-row,
+.helper2driver-content-row,
+.recruitmentDashboard-content-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.recruitment-main,
+.helper2driver-main,
+.recruitmentDashboard-main {
+  flex: 1;
+  padding: 1.5rem 2.5rem 2.5rem 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header rows for recruitment/helper pages: place Back/Register buttons to the right */
+.recruitment-header-row,
+.helper2driver-header-row,
+.recruitmentDashboard-header-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  max-width: min(1400px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recruitment-btn,
+.helper2driver-btn {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0.5rem 0.85rem !important;
+  font-size: 0.95rem !important;
+  border-radius: 10px !important;
+  display: inline-block !important;
+}
+
+/* Prevent table cells from wrapping and allow horizontal scroll if needed */
+.employees-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+.employees-table {
+  min-width: 1300px; /* ensure columns fit horizontally */
+}
+.employees-table th, .employees-table td {
+  white-space: nowrap;
+}
+
+/* Center the Employee Data title inside the card */
+.employees-table-title {
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Pagination layout for Employees page: horizontal alignment */
+.employees-pagination {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end; /* move pagination to the right */
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.employees-pagination .sidebar-btn {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0.45rem 0.9rem !important;
+  font-size: 0.95rem !important;
+  border-radius: 8px !important;
+}
+
+.employees-pagination .sidebar-btn.active {
+  box-shadow: 0 2px 8px 0 rgba(31,38,135,0.08) !important;
+}
+
+.employees-pagination .sidebar-btn.disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}

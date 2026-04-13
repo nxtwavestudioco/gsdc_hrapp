@@ -99,7 +99,15 @@ const EmployeeModal = ({ employee, open, onClose, onSave }: Props): React.ReactE
   // Keep form in sync with employee prop only when modal is opened
   React.useEffect(() => {
     if (open && employee) {
-      setForm(employee);
+      // Prefer `position` but fall back to `positionStatus` if API uses that field
+      // Normalize assignment to match select option casing so the correct option is selected
+      const rawAssign = (employee.assignment ?? (employee as any).Assignment ?? '') as string;
+      const normalizedAssign = typeof rawAssign === 'string' ? rawAssign.trim().toUpperCase() : rawAssign;
+      setForm({
+        ...employee,
+        position: (employee.position || (employee as any).positionStatus || ''),
+        assignment: normalizedAssign,
+      });
     } else if (open && !employee) {
       setForm(initialForm);
     }
@@ -108,10 +116,10 @@ const EmployeeModal = ({ employee, open, onClose, onSave }: Props): React.ReactE
   const [attachmentPreviews, setAttachmentPreviews] = useState<Record<string, string | null>>({});
   const [hoveredAttachment, setHoveredAttachment] = useState<string | null>(null);
 
-  // Sync form with employee prop
+  // Sync form with employee prop only when modal is closed to avoid overwriting
   useEffect(() => {
-    if (employee) setForm(employee);
-  }, [employee]);
+    if (!open && employee) setForm(employee);
+  }, [employee, open]);
 
   // Fetch previews for existing attachments on mount or when employee changes
   useEffect(() => {
@@ -265,8 +273,13 @@ const EmployeeModal = ({ employee, open, onClose, onSave }: Props): React.ReactE
                 </select>
               </div>
               <div className="modal-field-cell">
+<<<<<<< HEAD
                 <label htmlFor="positionStatus">Position</label>
                 <select id="positionStatus" name="positionStatus" value={form.positionStatus || ''} onChange={handleChange} className="modal-field-input">
+=======
+                <label htmlFor="position">Position</label>
+                <select id="position" name="position" value={form.position || ''} onChange={handleChange} className="modal-field-input">
+>>>>>>> e005fba (Initial commit from workspace)
                   <option value="">Select Position</option>
                   <option value="Driver">Driver</option>
                   <option value="Helper">Helper</option>

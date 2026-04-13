@@ -23,9 +23,9 @@
   border-radius: 16px;
   box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
   padding: 1.5rem 1.5rem;
-  /* allow internal scrolling while keeping header visible */
-  max-height: calc(100vh - 160px);
-  overflow-y: auto;
+  /* do not make the entire modal scrollable — let the table wrapper handle scrolling */
+  /* expose header height for table sticky offset; this is inherited by table wrapper */
+  --modal-header-h: 120px;
   color: #1e293b;
   position: relative;
 }
@@ -93,16 +93,15 @@
   top: 0;
   z-index: 6;
   background: #ffffff;
-  /* expose header height for table sticky offset; increased to accommodate header + search */
-  --modal-header-h: 92px;
   /* small shadow to separate from scrolled content */
   box-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
 
 /* Ensure the table header is sticky below the header wrapper */
 .modal-content thead th {
+  /* keep legacy selector but no offset here; table wrapper will handle sticky positioning */
   position: sticky;
-  top: var(--modal-header-h, 72px); /* aligns below the header + search input area */
+  top: 0;
   background: #ffffff;
   z-index: 4;
 }

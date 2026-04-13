@@ -36,6 +36,115 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
+=======
+/* First row (KAMI ID / Full Name / Address) specific layout */
+.modal-fields-row.first-row {
+  grid-template-columns: 140px 320px 1fr;
+  max-width: 1200px;
+  gap: 2.5rem;
+}
+
+.modal-fields-row.first-row .kamiid-cell .kamiid-input {
+  max-width: 140px;
+}
+.modal-fields-row.first-row .fullname-cell .fullname-input {
+  max-width: 320px;
+}
+.modal-fields-row.first-row .address-cell .address-input {
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Final overrides to ensure consistent 3-column alignment across all rows */
+/* Modal header row for close and export button alignment */
+.modal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Export button right alignment and spacing */
+.modal-export-btn-right {
+  margin-left: 8px;
+}
+/* Tenure info styling */
+.employee-tenure-info {
+  font-weight: 500;
+  color: #1e293b;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+/* 3-column layout for all fields */
+.modal-fields-3col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  align-items: center;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+.modal-fields-row {
+  display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(220px, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1050px;
+  justify-items: stretch;
+  align-items: center;
+}
+
+/* First row (KAMI ID / Full Name / Address) specific layout */
+.modal-fields-row.first-row {
+  grid-template-columns: 140px 320px 1fr;
+  max-width: 1200px;
+  gap: 2.5rem;
+}
+
+.modal-fields-row.first-row .kamiid-cell .kamiid-input {
+  max-width: 140px;
+}
+.modal-fields-row.first-row .fullname-cell .fullname-input {
+  max-width: 320px;
+}
+.modal-fields-row.first-row .address-cell .address-input {
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Final overrides to ensure consistent 3-column alignment across all rows */
+.modal-fields-3col {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-fields-row {
+  display: grid !important;
+  grid-template-columns: 140px 320px 1fr !important;
+  gap: 1.6rem !important;
+  align-items: start;
+  justify-items: center;
+}
+.modal-fields-row .modal-field-cell {
+  width: 100%;
+  max-width: 100%;
+}
+/* Keep KAMI ID and Full Name fixed width, allow Address to fill remaining column */
+.modal-fields-row .kamiid-input {
+  width: 120px !important;
+  max-width: 140px !important;
+}
+.modal-fields-row .fullname-input {
+  width: 300px !important;
+  max-width: 320px !important;
+}
+.modal-fields-row .address-input {
+  width: 100% !important;
+  max-width: none !important;
+}
+
 /* Custom column widths for better alignment */
 .modal-field-cell {
   display: flex;
@@ -73,7 +182,7 @@
 }
 .address-cell .address-input {
   width: 100%;
-  min-width: 420px;
+  min-width: 0;
   max-width: 100%;
 }
 .modal-field-cell label {
@@ -198,13 +307,7 @@
   gap: 2rem;
   margin-bottom: 2rem;
 }
-.modal-top-row .kamiid-col,
-.modal-top-row .fullname-col {
-  flex: 1;
-}
-.modal-top-row .address-col {
-  flex: 2;
-}
+
 /* KAMI ID, Full Name, Address field sizing and alignment */
 .kamiid-input {
   min-width: 80px;
@@ -222,9 +325,28 @@
   width: 180px;
 }
 .address-input {
-  min-width: 320px;
-  max-width: 100%;
-  width: 480px;
+  min-width: 0;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Keep KAMI ID and Full Name constrained so only Address expands */
+.modal-top-row .kamiid-col .modal-header-input,
+.modal-top-row .kamiid-col .kamiid-input {
+  max-width: 140px;
+  width: 100%;
+}
+.modal-top-row .fullname-col .modal-header-input,
+.modal-top-row .fullname-col .fullname-input {
+  max-width: 320px;
+  width: 100%;
+}
+
+/* Center the field labels for clearer column header alignment */
+.modal-top-row label,
+.modal-field-cell label,
+.modal-header-cell label {
+  text-align: center !important;
 }
 .kamiid-label {
   text-align: center;
@@ -314,10 +436,29 @@
   margin: 2rem auto;
   position: relative;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   box-sizing: border-box;
   max-height: 90vh;
   overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable both-edges;
+}
+
+/* Allow flex/grid children inside modal to shrink instead of forcing overflow */
+.modal-card .modal-field-cell,
+.modal-card .modal-header-cell,
+.modal-card .modal-fields-row,
+.modal-card .modal-header-row,
+.modal-card .modal-fields-flex {
+  min-width: 0;
+}
+
+/* Ensure inputs don't force horizontal overflow */
+.modal-card input,
+.modal-card select,
+.modal-card textarea {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 700px) {
@@ -400,6 +541,57 @@ textarea {
   padding-right: 12px;
   min-width: 0;
 }
+
+/* Make modal columns centered and consistent */
+.modal-fields-3col {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-fields-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 2rem;
+  align-items: start;
+  justify-items: center;
+}
+.modal-fields-row .modal-field-cell {
+  align-items: center;
+}
+
+/* Label styling for cleaner column headers */
+.modal-field-cell label,
+.modal-header-cell label {
+  display: block;
+  width: 100%;
+  text-align: center !important;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Make inputs align visually left inside constrained boxes while staying centered under labels */
+.modal-field-input,
+.modal-card input,
+.modal-card select,
+.modal-card textarea {
+  padding-left: 14px;
+}
+
+/* Center input values for the top (first) row fields */
+.modal-fields-row.first-row input,
+.modal-fields-row.first-row select,
+.modal-fields-row.first-row textarea {
+  text-align: center !important;
+}
+
+/* Slightly reduce vertical spacing for a tighter, cleaner layout */
+.modal-fields-3col { gap: 1rem; }
+.modal-fields-row { gap: 1.6rem; }
+
 label {
   margin-bottom: 6px;
   font-weight: 600;
@@ -459,7 +651,15 @@ label {
 
 /* Modal card width fix at end of file */
 .modal-card {
-  max-width: 1100px;
+  max-width: 1400px;
+}
+
+/* Make top-row Address input expand more while keeping siblings intact */
+.modal-top-row .address-col .modal-header-input,
+.modal-top-row .address-col .address-input {
+  min-width: 0;
+  width: 100%;
+  max-width: 760px;
 }
 
 /* Recruitment modal: extracted inline styles */

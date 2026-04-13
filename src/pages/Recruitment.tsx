@@ -56,7 +56,11 @@ const Recruitment: React.FC = () => {
           lastName: item.LastName,
           phone: item.Phone,
           email: item.Email,
-          position: item.Position,
+<<<<<<< HEAD
+          position: item.Position ?? (item as any).position ?? '',
+=======
+          position: item.Position ?? (item as any).position ?? '',
+>>>>>>> e005fba (Initial commit from workspace)
           status: item.Status,
           notes: item.Notes,
           createdAt: item.CreatedAt,

@@ -285,10 +285,6 @@ const RecruitmentModal: React.FC<RecruitmentModalProps> = ({ request, open, onCl
                       previewWindow.document.open();
                       previewWindow.document.write(`<html><head><title>Resume Preview</title><style>body{max-width:900px;margin:2rem auto;padding:0 2rem;font-family:Segoe UI,sans-serif;line-height:1.6;color:#1e293b}img{max-width:100%}table{border-collapse:collapse;width:100%}td,th{border:1px solid #cbd5e1;padding:8px}</style></head><body>${result.value}</body></html>`);
                       previewWindow.document.close();
-<<<<<<< HEAD
-          return createPortal(modalContent, document.body);
-=======
->>>>>>> e005fba (Initial commit from workspace)
                     } catch {
                       previewWindow.document.open();
                       previewWindow.document.write(`<html><head><title>Resume Preview</title></head><body style="padding:2rem;font-family:sans-serif;text-align:center"><p>Could not render DOCX preview. <a href="${resumePreview}" download="Resume">Download file</a></p></body></html>`);

@@ -189,8 +189,6 @@ function Employees() {
               let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
               const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
               startPage = Math.max(1, endPage - maxPagesToShow + 1);
-<<<<<<< HEAD
-=======
 
               // Build visible page list ensuring page 1 is always present after Prev
               const pages: (number | 'ellipsis')[] = [];
@@ -203,8 +201,6 @@ function Employees() {
                 if (endPage < totalPages - 1) pages.push('ellipsis');
                 pages.push(totalPages);
               }
-
->>>>>>> e005fba (Initial commit from workspace)
               return (
                 <div className="employees-pagination">
                   <button
@@ -212,16 +208,6 @@ function Employees() {
                     disabled={currentPage === 1}
                     className={`sidebar-btn employees-pagination-btn${currentPage === 1 ? ' disabled' : ''}`}
                   >Prev</button>
-<<<<<<< HEAD
-                  {Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map(p => (
-                    <button
-                      key={p}
-                      onClick={() => setCurrentPage(p)}
-                      className={`sidebar-btn employees-pagination-btn${p === currentPage ? ' active' : ''}`}
-                    >{p}</button>
-                  ))}
-=======
-
                   {pages.map((item, idx) => {
                     if (item === 'ellipsis') return <span key={`e-${idx}`} className="employees-pagination-ellipsis">…</span>;
                     const p = item as number;
@@ -233,8 +219,6 @@ function Employees() {
                       >{p}</button>
                     );
                   })}
-
->>>>>>> e005fba (Initial commit from workspace)
                   <button
                     onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                     disabled={currentPage === totalPages}

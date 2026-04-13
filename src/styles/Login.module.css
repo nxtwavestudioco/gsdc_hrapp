@@ -1,0 +1,156 @@
+/* Center login background and card */
+.loginBg {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 25% 30%, #2563eb 0%, #1e293b 40%, #0f172a 100%),
+    radial-gradient(circle at 70% 70%, #14b8a6 0%, transparent 60%);
+  background-color: #0f172a;
+}
+.loginCardWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.loginCard {
+  background: rgba(18, 28, 40, 0.92);
+  border-radius: 22px;
+  box-shadow: 0 8px 40px 0 rgba(31,38,135,0.22), 0 1.5px 0 0 #22344a;
+  padding: 2.8rem 2.8rem 2.2rem 2.8rem;
+  min-width: 400px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid rgba(80,120,180,0.18);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.loginHeaderRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+.loginLogoBox {
+  margin-right: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.loginLogoImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 18px;
+  object-fit: contain;
+  background: #fff;
+  border: 1.5px solid #22344a22;
+}
+.loginHeaderTextCol {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.loginAppTitle {
+  color: #b6c8e6;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.1rem;
+}
+.loginAppName {
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+.loginWelcomeCentered {
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 1.5rem 0 1.5rem 0;
+  width: 100%;
+}
+.loginInputRow {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+.loginLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #b6c8e6;
+  margin-bottom: 0.3rem;
+  margin-left: 0.1rem;
+}
+.loginInput {
+  border: 1.5px solid #22344a55;
+  border-radius: 10px;
+  padding: 0.85rem 1.2rem;
+  font-size: 1.13rem;
+  width: 100%;
+  background: rgba(28,38,58,0.85);
+  color: #fff;
+  caret-color: #fff;
+  -webkit-text-fill-color: #fff; /* for iOS/Safari/WebKit autofill */
+  font-weight: 500;
+  transition: border 0.18s, background 0.18s;
+}
+.loginInput::placeholder {
+  color: #9fb0d1;
+  opacity: 1;
+}
+.loginInput::-webkit-input-placeholder { color: #9fb0d1; }
+.loginInput:-ms-input-placeholder { color: #9fb0d1; }
+
+.loginInput::selection {
+  background: rgba(56,189,248,0.18);
+  color: #fff;
+}
+.loginInput::-moz-selection {
+  background: rgba(56,189,248,0.18);
+  color: #fff;
+}
+
+/* Autofill styles */
+.loginInput:-webkit-autofill,
+.loginInput:-webkit-autofill:focus,
+.loginInput:-webkit-autofill:hover {
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: 0 0 0px 1000px rgba(28,38,58,0.85) inset !important;
+}
+.loginInput:focus {
+  outline: none;
+  border: 1.5px solid #38bdf8;
+  background: rgba(38,48,78,0.95);
+  color: #fff;
+}
+.loginBtn {
+  width: 100%;
+  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.18rem;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 0;
+  margin-top: 1.2rem;
+  cursor: pointer;
+  transition: background 0.18s;
+  box-shadow: 0 2px 12px 0 #2563eb33;
+}
+.loginBtn:hover {
+  background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
+}
+.loginError {
+  color: #ef4444;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+/* end of Login.module.css */

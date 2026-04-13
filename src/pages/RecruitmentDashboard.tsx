@@ -97,7 +97,6 @@ const RecruitmentDashboard: FC = () => {
     Helper: styles.statCardHelper,
     Unspecified: styles.statCardUnspecified,
   };
-
   return (
     <div className="recruitment-bg">
       <TopBar theme={theme} setTheme={setTheme} handleLogout={handleLogout} />

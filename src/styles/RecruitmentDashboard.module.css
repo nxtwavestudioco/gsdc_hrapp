@@ -218,4 +218,3 @@
   .statsRow { grid-template-columns: repeat(2, 1fr); }
   .chartsGrid { grid-template-columns: 1fr; }
 }
-

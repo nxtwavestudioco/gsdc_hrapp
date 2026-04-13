@@ -674,6 +674,15 @@ label {
 .recruitment-header-input.recruitment-date-input {
   min-width: 180px;
   max-width: 220px;
+>>>>>>> d78f3377ae8a3d64a0ed63f5df72acafeb61b40b
+.recruitment-header-input.recruitment-id-input {
+  min-width: 260px;
+  max-width: 400px;
+}
+.recruitment-header-input.recruitment-fullname-input {
+  min-width: 400px;
+  max-width: 700px;
+>>>>>>> d78f3377ae8a3d64a0ed63f5df72acafeb61b40b
 }
 .recruitment-field-label {
   text-align: center;

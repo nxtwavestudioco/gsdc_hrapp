@@ -220,6 +220,7 @@ const RecruitmentModal: FC<RecruitmentModalProps> = ({ request, open, onClose, o
             <label className="recruitment-header-label">Full Name</label>
             <input className="recruitment-header-input recruitment-fullname-input" value={applicantName} disabled aria-label="Full Name" />
           </div>
+        
         </div>
         <div className="modal-fields-3col">
           <div className="modal-fields-row">

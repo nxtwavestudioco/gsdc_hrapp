@@ -386,7 +386,6 @@ function Home() {
     setExpiringDriversCount(count);
   }, [employeesFull, setExpiringDriversCount]);
 
-
   // KPI breakdowns
   const totalEmployees = data.reduce((a, r) => a + (r.TotalCount || 0), 0);
   const totalActive = data.reduce((a, r) => a + (r.ActiveCount || 0), 0);

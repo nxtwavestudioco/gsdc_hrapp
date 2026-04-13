@@ -25,130 +25,56 @@
   align-items: center;
   padding-left: 4vw;
   padding-right: 4vw;
-}
-.modal-fields-row {
-  display: grid;
-    grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(220px, 1fr);
-  gap: 2rem;
-  width: 100%;
-  max-width: 1050px;
-  justify-items: stretch;
-  align-items: center;
-}
-
-<<<<<<< HEAD
-=======
-/* First row (KAMI ID / Full Name / Address) specific layout */
-.modal-fields-row.first-row {
-  grid-template-columns: 140px 320px 1fr;
-  max-width: 1200px;
-  gap: 2.5rem;
-}
-
-.modal-fields-row.first-row .kamiid-cell .kamiid-input {
-  max-width: 140px;
-}
-.modal-fields-row.first-row .fullname-cell .fullname-input {
-  max-width: 320px;
-}
-.modal-fields-row.first-row .address-cell .address-input {
-  max-width: 1000px;
-  width: 100%;
-}
-
-/* Final overrides to ensure consistent 3-column alignment across all rows */
-/* Modal header row for close and export button alignment */
-.modal-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-/* Export button right alignment and spacing */
-.modal-export-btn-right {
-  margin-left: 8px;
-}
-/* Tenure info styling */
-.employee-tenure-info {
-  font-weight: 500;
-  color: #1e293b;
-  margin-top: 4px;
-  margin-bottom: 8px;
-}
-/* 3-column layout for all fields */
-.modal-fields-3col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-bottom: 2.5rem;
-  align-items: center;
-  padding-left: 4vw;
-  padding-right: 4vw;
-}
-.modal-fields-row {
-  display: grid;
-    grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(220px, 1fr);
-  gap: 2rem;
-  width: 100%;
-  max-width: 1050px;
-  justify-items: stretch;
-  align-items: center;
-}
-
-/* First row (KAMI ID / Full Name / Address) specific layout */
-.modal-fields-row.first-row {
-  grid-template-columns: 140px 320px 1fr;
-  max-width: 1200px;
-  gap: 2.5rem;
-}
-
-.modal-fields-row.first-row .kamiid-cell .kamiid-input {
-  max-width: 140px;
-}
-.modal-fields-row.first-row .fullname-cell .fullname-input {
-  max-width: 320px;
-}
-.modal-fields-row.first-row .address-cell .address-input {
-  max-width: 1000px;
-  width: 100%;
-}
-
-/* Final overrides to ensure consistent 3-column alignment across all rows */
-.modal-fields-3col {
   width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
 .modal-fields-row {
-  display: grid !important;
-  grid-template-columns: 140px 320px 1fr !important;
-  gap: 1.6rem !important;
+  display: grid;
+  grid-template-columns: 140px 320px 1fr;
+  gap: 1.6rem;
   align-items: start;
-  justify-items: center;
-}
-.modal-fields-row .modal-field-cell {
+  justify-items: stretch;
   width: 100%;
-  max-width: 100%;
 }
+.modal-fields-row.first-row {
+  grid-template-columns: 140px 320px 1fr;
+  max-width: 1200px;
+  gap: 2.5rem;
+}
+.modal-fields-row.first-row .kamiid-cell .kamiid-input {
+  max-width: 140px;
+}
+.modal-fields-row.first-row .fullname-cell .fullname-input {
+  max-width: 320px;
+}
+.modal-fields-row.first-row .address-cell .address-input {
+  max-width: 1000px;
+  width: 100%;
+}
+
 /* Keep KAMI ID and Full Name fixed width, allow Address to fill remaining column */
 .modal-fields-row .kamiid-input {
-  width: 120px !important;
-  max-width: 140px !important;
+  width: 120px;
+  max-width: 140px;
 }
 .modal-fields-row .fullname-input {
-  width: 300px !important;
-  max-width: 320px !important;
+  width: 300px;
+  max-width: 320px;
 }
 .modal-fields-row .address-input {
-  width: 100% !important;
-  max-width: none !important;
+  width: 100%;
+  max-width: none;
 }
 
 /* Custom column widths for better alignment */
 .modal-field-cell {
   display: flex;
   flex-direction: column;
+  flex: 1 1 0;
+  min-width: 180px;
+  max-width: 320px;
 }
 .kamiid-cell, .costcenter-cell, .employmentstatus-cell, .birthplace-cell, .restriction-cell, .pagibig-cell {
   flex: 0 0 120px;
@@ -161,13 +87,6 @@
 .address-cell, .status-cell, .civilstatus-cell, .driverlic-cell, .sss-cell, .tin-cell {
   flex: 1 1 600px;
   max-width: 800px;
-}
-.modal-field-cell {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 0;
-  min-width: 180px;
-  max-width: 320px;
 }
 .kamiid-cell .kamiid-input {
   width: 100%;
@@ -197,7 +116,6 @@
   min-width: 0;
   max-width: 100%;
 }
-/* Two header rows with three fields each at the top of the modal */
 .modal-header-rows {
   display: flex;
   flex-direction: column;

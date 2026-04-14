@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useState, useEffect, type ChangeEvent, type FC } from 'react';
 import { createPortal } from 'react-dom';
 import { Eye } from 'lucide-react';
@@ -43,6 +44,7 @@ const HelperToDriverModal: FC<Props> = ({ request, open, onClose, onSave }) => {
   });
   const [helpersList, setHelpersList] = useState<HelperOption[]>([]);
 
+  // Keep form in sync when `request` prop changes. This update is intentional.
   useEffect(() => {
     setForm(request || {
       id: 0,
@@ -164,7 +166,7 @@ const HelperToDriverModal: FC<Props> = ({ request, open, onClose, onSave }) => {
     </div>
   );
 
-  return createPortal(modalContent, typeof document !== 'undefined' ? document.body : null as any);
+  return createPortal(modalContent, typeof document !== 'undefined' ? document.body : null as unknown as Element);
 };
 
 export default HelperToDriverModal;

@@ -68,6 +68,22 @@
   border: 1.5px solid #2563eb;
 }
 
+/* Urgent row highlight for near-expiry licenses */
+.urgent-row {
+  background: linear-gradient(90deg, rgba(254,226,226,0.6), rgba(255,255,255,0));
+}
+.urgent-row td {
+  color: #7f1d1d;
+  font-weight: 600;
+}
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
 /* Modal modern look for edit dialogs */
 .modal-content {
   background: #fff;
@@ -222,6 +238,13 @@ body.theme-light, #root.theme-light {
   margin-right: auto;
 }
 
+/* Make recruitment/notifications table cards wider and centered */
+.recruitment-table-card {
+  width: min(1200px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Header row: place Back button at the top-right */
 .employees-header-row {
   width: 100%;
@@ -327,4 +350,42 @@ body.theme-light, #root.theme-light {
 .employees-pagination .sidebar-btn.disabled {
   opacity: 0.6 !important;
   cursor: not-allowed !important;
+}
+
+/* Notifications page small helpers */
+.notif-controls {
+  display: flex;
+  gap: 8px;
+  margin-left: 12px;
+}
+.csv-download-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.driver-name {
+  text-align: left;
+}
+.notif-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.notif-pagination-info {
+  color: #64748b;
+}
+.notif-pagination-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.small-pagination-btn {
+  padding: 0.4rem 0.6rem !important;
+  width: auto !important;
+}
+.notif-page-indicator {
+  color: #22344a;
+  align-self: center;
 }

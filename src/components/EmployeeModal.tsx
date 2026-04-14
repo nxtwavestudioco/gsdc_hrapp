@@ -101,11 +101,13 @@ const EmployeeModal = ({ employee, open, onClose, onSave }: Props): React.ReactE
     if (open && employee) {
       // Prefer `position` but fall back to `positionStatus` if API uses that field
       // Normalize assignment to match select option casing so the correct option is selected
-      const rawAssign = (employee.assignment ?? (employee as any).Assignment ?? '') as string;
-      const normalizedAssign = typeof rawAssign === 'string' ? rawAssign.trim().toUpperCase() : rawAssign;
+      const rawAssign = (employee.assignment ?? (employee as unknown as Record<string, unknown>).Assignment ?? '') as unknown;
+      const normalizedAssign = typeof rawAssign === 'string' ? rawAssign.trim().toUpperCase() : '';
+      const posCandidate = (employee.position ?? (employee as unknown as Record<string, unknown>).positionStatus ?? '');
+      const normalizedPosition = typeof posCandidate === 'string' ? posCandidate : '';
       setForm({
         ...employee,
-        position: (employee.position || (employee as any).positionStatus || ''),
+        position: normalizedPosition,
         assignment: normalizedAssign,
       });
     } else if (open && !employee) {

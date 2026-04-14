@@ -56,7 +56,7 @@ const Recruitment: FC = () => {
           lastName: item.LastName,
           phone: item.Phone,
           email: item.Email,
-          position: item.Position ?? (item as any).position ?? '',
+          position: item.Position ?? (item as unknown as Record<string, unknown>).position ?? '',
           status: item.Status,
           notes: item.Notes,
           createdAt: item.CreatedAt,

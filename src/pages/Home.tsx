@@ -362,29 +362,66 @@ function Home() {
   }, []);
 
   // Update notifications count from employeesFull (drivers with license expiry within X days)
-  const { setExpiringDriversCount } = useNotifications();
+  const { setExpiringDriversCount, setExpiringDrivers } = useNotifications();
   useEffect(() => {
     if (!employeesFull || employeesFull.length === 0) {
       setExpiringDriversCount(0);
+      setExpiringDrivers([]);
       return;
     }
     const daysWindow = 30; // default window; can be parameterized later
     const now = new Date();
     let count = 0;
+    const list: Record<string, unknown>[] = [];
     for (const e of employeesFull) {
       const rec = e as Record<string, unknown>;
       const pos = (rec['Position'] || rec['position'] || rec['PositionGroup'] || rec['positionGroup'] || '') as string;
       if (!pos || !/driver/i.test(pos)) continue;
-      const getStr = (k: string) => (typeof rec[k] === 'string' ? (rec[k] as string) : '');
-      const expiryStr = getStr('LicenseExpiry') || getStr('licenseExpiry') || getStr('ExpiryDate') || getStr('expiryDate') || getStr('LicenseExpiration') || getStr('licenseExpiration');
+      const getStr = (k: string) => {
+        const v = rec[k];
+        if (typeof v === 'string') return v;
+        if (typeof v === 'number') return String(v);
+        return '';
+      };
+      const expiryStr = getStr('LicenseExpiry') || getStr('licenseExpiry') || getStr('ExpiryDate') || getStr('expiryDate') || getStr('LicenseExpiration') || getStr('licenseExpiration') || getStr('DriversLicenseExpiryDate') || getStr('driversLicenseExpiryDate') || getStr('licenseExpiry') || '';
       if (!expiryStr) continue;
       const d = new Date(expiryStr);
       if (isNaN(d.getTime())) continue;
       const diffDays = Math.ceil((d.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-      if (diffDays >= 0 && diffDays <= daysWindow) count += 1;
+      if (diffDays >= 0 && diffDays <= daysWindow) {
+        count += 1;
+        const getName = () => {
+          const fn = getStr('FullName') || getStr('fullName') || getStr('name') || '';
+          if (fn) return fn;
+          const last = getStr('LastName') || getStr('lastName') || '';
+          const first = getStr('FirstName') || getStr('firstName') || '';
+          return `${last}${last && first ? ', ' : ''}${first}`.trim() || '';
+        };
+        let licenseNo = getStr('LicenseNumber') || getStr('licenseNumber') || getStr('LicenseNo') || getStr('license_no') || getStr('DriversLicense') || getStr('driversLicense') || getStr('Drivers_License') || getStr('DriversLicenseNo') || getStr('drivers_license_no') || getStr('DriversLicenseNumber') || '';
+        if (!licenseNo) {
+          // scan for license-like keys
+          for (const k of Object.keys(rec)) {
+            const lk = k.toLowerCase();
+            if (lk.includes('license') && !lk.includes('expir') && !lk.includes('expiry')) {
+              const v = rec[k];
+              if (typeof v === 'string') { licenseNo = v; break; }
+              if (typeof v === 'number') { licenseNo = String(v); break; }
+            }
+            if ((lk.includes('lic') || lk.includes('licence') || lk.includes('licno')) && !lk.includes('expir')) {
+              const v = rec[k];
+              if (typeof v === 'string') { licenseNo = v; break; }
+              if (typeof v === 'number') { licenseNo = String(v); break; }
+            }
+          }
+        }
+        const buVal = getStr('BU') || getStr('bu') || getStr('business_unit') || getStr('BusinessUnit') || getStr('BUName') || getStr('Branch') || getStr('Office') || '';
+        const assignmentVal = getStr('assignment') || getStr('Assignment') || getStr('Position') || getStr('position') || getStr('AreaAssignment') || getStr('AssignmentArea') || '';
+        list.push({ fullName: getName(), licenseNumber: licenseNo, licenseExpiry: d.toISOString(), daysLeft: diffDays, bu: buVal, assignment: assignmentVal });
+      }
     }
     setExpiringDriversCount(count);
-  }, [employeesFull, setExpiringDriversCount]);
+    setExpiringDrivers(list);
+  }, [employeesFull, setExpiringDriversCount, setExpiringDrivers]);
 
   // KPI breakdowns
   const totalEmployees = data.reduce((a, r) => a + (r.TotalCount || 0), 0);
